@@ -1,0 +1,50 @@
+{
+	"name": "webpack-npm",
+	"version": "0.0.1",
+	"main": "./dist/index.js",
+	"typings": "./dist/index.d.ts",
+	"license": "MIT",
+	"scripts": {
+		"build:types": "tsc -d --declarationDir dist --emitDeclarationOnly src/index.ts",
+		"build:source": "cross-env NODE_ENV=production babel-node node_modules/.bin/webpack",
+		"build": "yarn build:types && yarn build:source"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.3",
+		"@babel/node": "^7.8.3",
+		"@babel/plugin-transform-runtime": "^7.8.3",
+		"@babel/preset-env": "^7.8.3",
+		"@babel/preset-react": "^7.8.3",
+		"@babel/preset-typescript": "^7.8.3",
+		"@babel/register": "^7.8.3",
+		"@babel/runtime": "^7.8.3",
+		"@babel/runtime-corejs3": "^7.8.3",
+		"@types/terser-webpack-plugin": "^2.2.0",
+		"@types/webpackbar": "^2.6.0",
+		"@typescript-eslint/eslint-plugin": "^2.16.0",
+		"@typescript-eslint/parser": "^2.16.0",
+		"babel-loader": "^8.0.6",
+		"babel-plugin-object-to-json-parse": "^0.0.9",
+		"babel-plugin-transform-remove-console": "^6.9.4",
+		"cross-env": "^6.0.3",
+		"eslint": "^6.8.0",
+		"fork-ts-checker-webpack-plugin": "^4.0.0-beta.4",
+		"prettier": "^1.19.1",
+		"terser-webpack-plugin": "^2.3.2",
+		"typescript": "^3.7.4",
+		"webpack": "^4.41.5",
+		"webpack-cli": "^3.3.10",
+		"webpackbar": "^4.0.0"
+	},
+	"dependencies": {
+		"tslib": "^1.10.0"
+	},
+	"engines": {
+		"node": ">=12.14.0",
+		"yarn": ">=1.21.1"
+	},
+	"os": [
+		"darwin",
+		"linux"
+	]
+}

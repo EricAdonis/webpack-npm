@@ -1,0 +1,19 @@
+{
+	"presets": [
+		"@babel/preset-env",
+		[
+			"@babel/preset-typescript",
+			{
+				"allExtensions": true
+			}
+		]
+	],
+	"plugins": [
+		[
+			"@babel/plugin-transform-runtime",
+			{
+				"corejs": 3
+			}
+		]
+	]
+}
