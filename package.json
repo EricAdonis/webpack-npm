@@ -6,8 +6,10 @@
 	"license": "MIT",
 	"scripts": {
 		"build:types": "tsc -d --declarationDir dist --emitDeclarationOnly src/index.ts",
-		"build:source": "cross-env NODE_ENV=production babel-node node_modules/.bin/webpack",
-		"build": "yarn build:types && yarn build:source"
+		"build:source": "rm -rf dist && cross-env NODE_ENV=production babel-node node_modules/.bin/webpack",
+		"build": "yarn build:types && yarn build:source",
+		"start:webpack": "rm -rf dist && cross-env NODE_ENV=development babel-node node_modules/.bin/webpack --watch",
+		"start": "nodemon dist/index.js"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.8.3",
@@ -28,10 +30,11 @@
 		"babel-plugin-transform-remove-console": "^6.9.4",
 		"cross-env": "^6.0.3",
 		"eslint": "^6.8.0",
-		"fork-ts-checker-webpack-plugin": "^4.0.0-beta.4",
+		"fork-ts-checker-webpack-plugin": "^4.0.1",
+		"nodemon": "^2.0.2",
 		"prettier": "^1.19.1",
 		"terser-webpack-plugin": "^2.3.2",
-		"typescript": "^3.7.4",
+		"typescript": "^3.7.5",
 		"webpack": "^4.41.5",
 		"webpack-cli": "^3.3.10",
 		"webpackbar": "^4.0.0"

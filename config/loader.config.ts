@@ -1,6 +1,6 @@
 import { RuleSetLoader } from 'webpack'
 
-export const babelLoader = (): RuleSetLoader => ({
+export const babelLoader = ({ isDev }: { isDev: boolean }): RuleSetLoader => ({
 	loader: 'babel-loader',
 	options: {
 		cacheDirectory: true,
@@ -29,7 +29,7 @@ export const babelLoader = (): RuleSetLoader => ({
 				},
 			],
 			'object-to-json-parse',
-			'transform-remove-console',
+			...(isDev ? [] : ['transform-remove-console']),
 		],
 	},
 })

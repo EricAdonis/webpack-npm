@@ -6,10 +6,12 @@ import { optimizePlugins } from './plugins.config'
 import { resolve } from './resolve.alias.config'
 import { babelLoader } from './loader.config'
 
+const isDev = process.env.NODE_ENV === 'development'
+
 export const basicConfig = (): Configuration => ({
 	cache: true,
 	target: 'node',
-	mode: 'production',
+	mode: isDev ? 'development' : 'production',
 	entry: [path.resolve(__dirname, '../src/index.ts')],
 	output: {
 		path: path.resolve(__dirname, '../dist'),
@@ -41,7 +43,7 @@ export const basicConfig = (): Configuration => ({
 			{
 				test: /\.(js|ts)/,
 				exclude: /(node_modules)/,
-				use: [babelLoader()],
+				use: [babelLoader({ isDev })],
 			},
 		],
 	},
